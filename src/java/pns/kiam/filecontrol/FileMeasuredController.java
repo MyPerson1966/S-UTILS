@@ -9,10 +9,13 @@ import java.io.File;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import javax.ejb.EJB;
 import javax.ejb.Singleton;
 import javax.ejb.Startup;
+import javax.ejb.Stateless;
 import pns.fileUtils.DirectoryDeepGo;
 import pns.fileUtils.FileSpecActor;
 import pns.kiam.entities.satellites.FileMeasured;
@@ -21,7 +24,7 @@ import pns.kiam.entities.satellites.FileMeasured;
  *
  * @author User
  */
-@Singleton
+@Stateless
 public class FileMeasuredController implements Serializable {
 
     private String archPath = "";
@@ -37,9 +40,10 @@ public class FileMeasuredController implements Serializable {
         this.archPath = archPath.replace('\\', '/');
     }
 
-    public List<FileMeasured> readArchiveFileDir() {
+    public Set<FileMeasured> readArchiveFileDir() {
 
-        List<FileMeasured> fml = new ArrayList<>();
+        Set<FileMeasured> fml = null;
+        fml = new HashSet<>();
 
         ddg.setRootDir(archPath);
         ddg.setDirToInvestigate("/");
