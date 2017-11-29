@@ -10,6 +10,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 import javax.ejb.EJB;
@@ -50,6 +51,7 @@ public class FileMeasuredController implements Serializable {
 
         ddg.goDeep();
         System.out.println("  ddg.getDirToInvestigate()   " + ddg.getDirToInvestigate() + "  ddg.getSubDirList().size()  " + ddg.getSubDirList().size());
+
         for (int k = 0; k < ddg.getFileList().size(); k++) {
             File f = ddg.getFileList().get(k);
             long mm = f.lastModified();
@@ -76,8 +78,7 @@ public class FileMeasuredController implements Serializable {
 //		System.out.println(k + " m " + fm.getMonth());
 //		System.out.println(k + " d " + fm.getDate());
             }
-            //
-            System.out.println(k + "     =====>>>==>> " + tmp + "   :    ");
+
         }
         return fml;
     }
