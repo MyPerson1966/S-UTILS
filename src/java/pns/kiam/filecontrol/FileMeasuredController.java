@@ -37,7 +37,6 @@ public class FileMeasuredController implements Serializable {
     }
 
     public void setArchPath(String archPath) {
-
         this.archPath = archPath.replace('\\', '/');
     }
 
@@ -48,6 +47,7 @@ public class FileMeasuredController implements Serializable {
 
         ddg.setRootDir(archPath);
         ddg.setDirToInvestigate("/");
+        ddg.getFileList().clear();
 
         ddg.goDeep();
         System.out.println("  ddg.getDirToInvestigate()   " + ddg.getDirToInvestigate() + "  ddg.getSubDirList().size()  " + ddg.getSubDirList().size());
@@ -67,6 +67,7 @@ public class FileMeasuredController implements Serializable {
             System.out.println("YYYY:  " + YYYY + "     DDDD:  " + DDDD);
             if (fsa.fileRead(tmp)) {
                 String c = fsa.getFileContent().trim();
+
                 int y = gettingIntFromSTR(YYYY);
                 int m = gettingIntFromSTR(DDDD.split("-")[0]);
                 int d = gettingIntFromSTR(DDDD.split("-")[1]);
