@@ -99,10 +99,10 @@ public class ResParser extends AbstractFileMeasureParser {
         } catch (ParseException ex) {
             Logger.getLogger(ResParser.class.getName()).log(Level.SEVERE, null, ex);
         }
-        short telescopeID = Short.parseShort(lc.getTelescopeNo());
+        int telescopeID = Integer.parseInt(lc.getTelescopeNo());
         sm.setTelescopeID(telescopeID);
 
-        short objectNo = Short.parseShort(lc.getObjectNo());
+        int objectNo = Integer.parseInt(lc.getObjectNo());
         sm.setSatID(objectNo);
 
         int H = Integer.parseInt(lc.getAscensions().substring(0, 2));
