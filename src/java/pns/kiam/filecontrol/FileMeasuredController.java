@@ -36,6 +36,10 @@ public class FileMeasuredController implements Serializable {
         return archPath;
     }
 
+    /**
+     *
+     * @param archPath
+     */
     public void setArchPath(String archPath) {
         this.archPath = archPath.replace('\\', '/');
     }
